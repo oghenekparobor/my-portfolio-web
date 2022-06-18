@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomeSection extends StatelessWidget {
   const HomeSection({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class HomeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Robor',
+            'Kparobor',
             style: GoogleFonts.abel(
               color: Colors.white,
               fontSize: 72,
@@ -25,13 +25,13 @@ class HomeSection extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Text(
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut!',
+            'A proactive, talented communicator well-versed in all aspects of mobile app development. Results-oriented with more than 5 years of experience in IT industry. Solidifies client relations and growth through improved workflows and enhanced features.',
             textAlign: TextAlign.start,
-            maxLines: 3,
+            maxLines: 4,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.abel(
               color: Colors.white54,
-              height: 1.5,
+              height: 1.2,
             ),
           ),
         ],

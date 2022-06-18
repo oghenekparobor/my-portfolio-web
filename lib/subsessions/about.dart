@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer_image/shimmer_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutSubSection extends StatefulWidget {
-  AboutSubSection({Key key}) : super(key: key);
+  AboutSubSection({Key? key}) : super(key: key);
 
   @override
   _AboutSubSectionState createState() => _AboutSubSectionState();
@@ -11,22 +12,20 @@ class AboutSubSection extends StatefulWidget {
 
 class _AboutSubSectionState extends State<AboutSubSection>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> _animation;
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
     )..forward();
 
     _animation = Tween<Offset>(
       begin: Offset(0.0, 1.0),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInCubic,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
 
     super.initState();
   }
@@ -39,39 +38,30 @@ class _AboutSubSectionState extends State<AboutSubSection>
 
   var portfolio = [
     {
-      'IMAGE': 'assets/images/naijafood.jpg',
-      'NAME': '',
-      'URL': 'https://naija-foods.com/',
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1655568636/my-portfolio/Screenshot_2022-06-18_at_17.03.48_lyzhdg.png',
+      'NAME': 'Chicken republic delta mall',
+      'URL':
+          'https://play.google.com/store/apps/details?id=com.chickenrepublicdeltamall',
     },
     {
-      'IMAGE': 'assets/images/bella.jpg',
-      'NAME': '',
-      'URL': 'https://b-grills.com/',
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1655568628/my-portfolio/Screenshot_2022-06-18_at_17.04.11_sz3ufy.png',
+      'NAME': 'Cravings',
+      'URL': 'https://cravingsng.com/',
     },
     {
-      'IMAGE': 'assets/images/restaurant.png',
-      'NAME': '',
-      'URL': '',
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1655568624/my-portfolio/Screenshot_2022-06-18_at_17.04.32_mro1pa.png',
+      'NAME': 'Renmoney MFB',
+      'URL':
+          'https://play.google.com/store/apps/details?id=com.renmoney.android',
     },
     {
-      'IMAGE': 'assets/images/askie.jpg',
-      'NAME': '',
-      'URL': '',
-    },
-    {
-      'IMAGE': 'assets/images/alerte.jpg',
-      'NAME': '',
-      'URL': 'https://alertegeneric.com/',
-    },
-    {
-      'IMAGE': 'assets/images/edge.jpg',
-      'NAME': '',
-      'URL': '',
-    },
-    {
-      'IMAGE': 'assets/images/paradise.jpg',
-      'NAME': '',
-      'URL': '',
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1655568637/my-portfolio/alerte_e6uwd5.jpg',
+      'NAME': 'Alerte generic',
+      'URL': 'https://play.google.com/store/apps/details?id=com.alerte.generic',
     },
   ];
 
@@ -82,44 +72,48 @@ class _AboutSubSectionState extends State<AboutSubSection>
         position: _animation,
         child: ListView(
           children: [
-            SizedBox(height: 150),
+            SizedBox(height: 100),
             for (var i = 0; i < portfolio.length; i++)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Spacer(),
-                  Expanded(
-                    flex: 2,
-                    child: GestureDetector(
-                      onTap: () async => launch(portfolio[i]['URL']),
-                      child: Column(
-                        children: [
-                          Text(
-                            portfolio[i]['NAME'],
-                            style: GoogleFonts.abel(
-                              fontSize: 18,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 45),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    Expanded(
+                      flex: 2,
+                      child: GestureDetector(
+                        onTap: () async => launchUrl(
+                          Uri.parse(portfolio[i]['URL']!),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              portfolio[i]['NAME']!,
+                              style: GoogleFonts.abel(
+                                fontSize: 18,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 10),
-                          Container(
-                            width: 400,
-                            height: 400,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(portfolio[i]['IMAGE']),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 400,
+                              height: 400,
+                              child: ProgressiveImage(
+                                width: 400,
+                                image: portfolio[i]['IMAGE']!,
+                                height: 400,
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            // margin: EdgeInsets.all(15),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Spacer(),
-                ],
+                    Spacer(),
+                  ],
+                ),
               ),
-            SizedBox(height: 150),
+            SizedBox(height: 100),
           ],
         ),
       ),

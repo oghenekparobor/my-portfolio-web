@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:myportfolio/change-notifier/home_notifier.dart';
+import 'package:myportfolio/home.dart';
+import 'package:provider/provider.dart';
 
 class HomeSubSection extends StatefulWidget {
-  const HomeSubSection({Key key}) : super(key: key);
+  const HomeSubSection({Key? key}) : super(key: key);
 
   @override
   _HomeSubSectionState createState() => _HomeSubSectionState();
@@ -10,9 +14,10 @@ class HomeSubSection extends StatefulWidget {
 
 class _HomeSubSectionState extends State<HomeSubSection>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> _animation;
-  Animation<Offset> _anim;
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+  late Animation<Offset> _anim;
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -82,7 +87,7 @@ class _HomeSubSectionState extends State<HomeSubSection>
                             SizedBox(height: 5),
                             Expanded(
                               child: Text(
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum',
+                                'A Flutter (Dart) developer with 4+ year experience in mobile development. I have have knowledge in php & rust programming language',
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.abel(),
@@ -92,7 +97,10 @@ class _HomeSubSectionState extends State<HomeSubSection>
                             Align(
                               alignment: Alignment.centerLeft,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () => Provider.of<HomeNotifier>(
+                                  context,
+                                  listen: false,
+                                ).nav(1),
                                 child: Text('Read more'),
                               ),
                             )
@@ -129,7 +137,7 @@ class _HomeSubSectionState extends State<HomeSubSection>
                             SizedBox(height: 5),
                             Expanded(
                               child: Text(
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum',
+                                'I solve problems ',
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.abel(),
@@ -139,7 +147,10 @@ class _HomeSubSectionState extends State<HomeSubSection>
                             Align(
                               alignment: Alignment.centerLeft,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () => Provider.of<HomeNotifier>(
+                                  context,
+                                  listen: false,
+                                ).nav(1),
                                 child: Text('View portfolio'),
                               ),
                             )
@@ -149,11 +160,9 @@ class _HomeSubSectionState extends State<HomeSubSection>
                     ),
                     Expanded(
                       flex: 7,
-                      child: Image.asset(
-                        'assets/images/design.jpg',
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.maxFinite,
+                      child: Container(
+                        color: Colors.black87,
+                        child: Lottie.asset('assets/images/settings.json'),
                       ),
                     ),
                   ],

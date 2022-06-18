@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactSubSection extends StatefulWidget {
-  const ContactSubSection({Key key}) : super(key: key);
+  const ContactSubSection({Key? key}) : super(key: key);
 
   @override
   _ContactSubSectionState createState() => _ContactSubSectionState();
@@ -10,8 +11,9 @@ class ContactSubSection extends StatefulWidget {
 
 class _ContactSubSectionState extends State<ContactSubSection>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> _animation;
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -49,31 +51,37 @@ class _ContactSubSectionState extends State<ContactSubSection>
             children: [
               Text(
                 'PHONE',
-                style: GoogleFonts.abel(
-                  fontSize: 18,
-                ),
+                style: GoogleFonts.abel(fontSize: 15),
               ),
-              Text(
-                '09060257738',
-                style: GoogleFonts.abel(
-                  fontSize: 50,
-                  letterSpacing: 5,
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () => launchUrl(
+                  Uri.parse('tel:+2349060257738'),
+                ),
+                child: Text(
+                  '09060257738',
+                  style: GoogleFonts.abel(
+                    fontSize: 40,
+                    letterSpacing: 5,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               SizedBox(height: 20),
               Text(
                 'EMAIL',
-                style: GoogleFonts.abel(
-                  fontSize: 18,
-                ),
+                style: GoogleFonts.abel(fontSize: 15),
               ),
-              Text(
-                'ROBOR.EMINOKANJU@GMAIL.COM',
-                style: GoogleFonts.abel(
-                  fontSize: 50,
-                  letterSpacing: 5,
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () => launchUrl(
+                  Uri.parse('mailto:robor.eminokanju@gmail.com'),
+                ),
+                child: Text(
+                  'ROBOR.EMINOKANJU@GMAIL.COM',
+                  style: GoogleFonts.abel(
+                    fontSize: 40,
+                    letterSpacing: 5,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
