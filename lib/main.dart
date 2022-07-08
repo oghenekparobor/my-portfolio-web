@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: HomeNotifier()),
       ],
       child: MaterialApp(
-        title: 'My Portfolio',
+        title: 'Oghenekparobor\'s Portfolio',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,

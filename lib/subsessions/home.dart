@@ -62,11 +62,16 @@ class _HomeSubSectionState extends State<HomeSubSection>
                   children: [
                     Expanded(
                       flex: 7,
-                      child: Image.asset(
-                        'assets/images/me.jpg',
-                        fit: BoxFit.cover,
+                      child: Container(
+                        color: Color.fromRGBO(47, 43, 49, 1),
                         width: double.infinity,
-                        height: double.maxFinite,
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          'assets/images/me.gif',
+                          fit: BoxFit.contain,
+                          width: double.infinity,
+                          height: double.maxFinite,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -162,7 +167,7 @@ class _HomeSubSectionState extends State<HomeSubSection>
                       flex: 7,
                       child: Container(
                         color: Colors.black87,
-                        child: Lottie.asset('assets/images/settings.json'),
+                        child: Image.asset('assets/images/home.gif'),
                       ),
                     ),
                   ],

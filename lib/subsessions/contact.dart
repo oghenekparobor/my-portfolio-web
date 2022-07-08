@@ -58,7 +58,7 @@ class _ContactSubSectionState extends State<ContactSubSection>
                   Uri.parse('tel:+2349060257738'),
                 ),
                 child: Text(
-                  '09060257738',
+                  '+2349060257738',
                   style: GoogleFonts.abel(
                     fontSize: 40,
                     letterSpacing: 5,

@@ -25,9 +25,9 @@ class AboutSection extends StatelessWidget {
             ),
             SizedBox(height: 15),
             Text(
-              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut!',
-              textAlign: TextAlign.start,
-              maxLines: 3,
+              'Hi! My name is Oghenekparobor and I am self taught mobile developer. I enjoy proffering solutions to challenges and building scalable products. I am proficient in Dart, Rust, PHP and JavaScript. Timely delivery and analytical thinking are my super powers. Let’s work together if you find me daring. ',
+              textAlign: TextAlign.justify,
+              maxLines: 5,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.abel(
                 color: Colors.white54,
