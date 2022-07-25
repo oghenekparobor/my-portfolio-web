@@ -12,17 +12,17 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '2.10.5'
-      - run: flutter pub get
-      - run: flutter test
-      - run: flutter build web
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter-version: '2.10.5'
+  #     - run: flutter pub get
+  #     - run: flutter test
+  #     - run: flutter build web
 
   build_ios:
     name: Build ios
