@@ -23,17 +23,17 @@ class HomeSection extends StatelessWidget {
               letterSpacing: 10,
             ),
           ),
-          SizedBox(height: 15),
-          Text(
-            'A proactive, talented communicator well-versed in all aspects of mobile app development. Results-oriented with more than 5 years of experience in IT industry. Solidifies client relations and growth through improved workflows and enhanced features.',
-            textAlign: TextAlign.start,
-            maxLines: 4,
-            overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.abel(
-              color: Colors.white54,
-              height: 1.2,
-            ),
-          ),
+          // SizedBox(height: 15),
+          // Text(
+          //   'A proactive, talented communicator well-versed in all aspects of mobile app development. Results-oriented with more than 5 years of experience in IT industry. Solidifies client relations and growth through improved workflows and enhanced features.',
+          //   textAlign: TextAlign.start,
+          //   maxLines: 4,
+          //   overflow: TextOverflow.ellipsis,
+          //   style: GoogleFonts.abel(
+          //     color: Colors.white54,
+          //     height: 1.2,
+          //   ),
+          // ),
         ],
       ),
     );

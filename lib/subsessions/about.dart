@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer_image/shimmer_image.dart';
@@ -10,29 +11,14 @@ class AboutSubSection extends StatefulWidget {
   _AboutSubSectionState createState() => _AboutSubSectionState();
 }
 
-class _AboutSubSectionState extends State<AboutSubSection>
-    with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-
+class _AboutSubSectionState extends State<AboutSubSection> {
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
-      vsync: this,
-    )..forward();
-
-    _animation = Tween<Offset>(
-      begin: Offset(0.0, 1.0),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
-
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
     super.dispose();
   }
 
@@ -68,8 +54,7 @@ class _AboutSubSectionState extends State<AboutSubSection>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SlideTransition(
-        position: _animation,
+      body: SlideInUp(
         child: ListView(
           children: [
             SizedBox(height: 100),

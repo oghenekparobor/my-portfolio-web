@@ -1,9 +1,8 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'package:myportfolio/change-notifier/home_notifier.dart';
-import 'package:myportfolio/home.dart';
-import 'package:provider/provider.dart';
+import 'package:myportfolio/subsessions/widget/skill.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeSubSection extends StatefulWidget {
   const HomeSubSection({Key? key}) : super(key: key);
@@ -12,41 +11,15 @@ class HomeSubSection extends StatefulWidget {
   _HomeSubSectionState createState() => _HomeSubSectionState();
 }
 
-class _HomeSubSectionState extends State<HomeSubSection>
-    with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-  late Animation<Offset> _anim;
-
+class _HomeSubSectionState extends State<HomeSubSection> {
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..forward();
-
-    _animation = Tween<Offset>(
-      begin: Offset(0.0, 1.0),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInCubic,
-    ));
-
-    _anim = Tween<Offset>(
-      begin: Offset(0.0, -1.0),
-      end: Offset(0.0, 0.0),
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInCubic,
-    ));
     super.initState();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
   }
 
   @override
@@ -55,20 +28,19 @@ class _HomeSubSectionState extends State<HomeSubSection>
       body: Row(
         children: [
           Expanded(
-            child: SlideTransition(
-              position: _anim,
+            child: SlideInDown(
               child: Container(
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 7,
+                      flex: 8,
                       child: Container(
                         color: Color.fromRGBO(47, 43, 49, 1),
                         width: double.infinity,
                         alignment: Alignment.center,
-                        child: Image.asset(
-                          'assets/images/me.gif',
-                          fit: BoxFit.contain,
+                        child: Image.network(
+                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662580805/my-portfolio/IMG_4306_agpm0q.jpg',
+                          fit: BoxFit.cover,
                           width: double.infinity,
                           height: double.maxFinite,
                         ),
@@ -92,21 +64,32 @@ class _HomeSubSectionState extends State<HomeSubSection>
                             SizedBox(height: 5),
                             Expanded(
                               child: Text(
-                                'A Flutter (Dart) developer with 4+ year experience in mobile development. I have have knowledge in php & rust programming language',
-                                maxLines: 2,
+                                'A Flutter developer with 5+ year experience in mobile development. Timely delivery and analytical thinking are my superpowers.',
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.abel(),
+                                style: GoogleFonts.abel(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                ),
                               ),
                             ),
                             SizedBox(height: 5),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: TextButton(
-                                onPressed: () => Provider.of<HomeNotifier>(
-                                  context,
-                                  listen: false,
-                                ).nav(1),
-                                child: Text('Read more'),
+                                onPressed: () async => launchUrl(
+                                  Uri.parse(
+                                    'https://docs.google.com/document/d/1X0z5hf0YTtjTzhdRdQCLb6tNiukYp5O5V1sJb2jqh1U/edit?usp=sharing',
+                                  ),
+                                ),
+                                child: Text(
+                                  'Download Resume',
+                                  style: GoogleFonts.abel(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Color(0xffD69976),
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -119,13 +102,12 @@ class _HomeSubSectionState extends State<HomeSubSection>
             ),
           ),
           Expanded(
-            child: SlideTransition(
-              position: _animation,
+            child: SlideInUp(
               child: Container(
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 3,
+                      flex: 8,
                       child: Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: Column(
@@ -133,41 +115,35 @@ class _HomeSubSectionState extends State<HomeSubSection>
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              'What I do',
+                              'Skills',
                               style: GoogleFonts.abel(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             SizedBox(height: 5),
-                            Expanded(
-                              child: Text(
-                                'I solve problems ',
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.abel(),
-                              ),
+                            Text(
+                              'I am proficient in',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.abel(),
                             ),
-                            SizedBox(height: 5),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: TextButton(
-                                onPressed: () => Provider.of<HomeNotifier>(
-                                  context,
-                                  listen: false,
-                                ).nav(1),
-                                child: Text('View portfolio'),
-                              ),
-                            )
+                            SizedBox(height: 30),
+                            Expanded(child: SkillSet()),
                           ],
                         ),
                       ),
                     ),
                     Expanded(
-                      flex: 7,
+                      flex: 3,
                       child: Container(
-                        color: Colors.black87,
-                        child: Image.asset('assets/images/home.gif'),
+                        color: Colors.black,
+                        child: Image.network(
+                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662579249/my-portfolio/wid_er3g6f.gif',
+                          height: double.maxFinite,
+                          width: double.infinity,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ],

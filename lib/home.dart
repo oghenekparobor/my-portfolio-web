@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,29 +19,14 @@ class DesktopHome extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<DesktopHome> with TickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-
+class _HomeState extends State<DesktopHome> {
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..forward();
-
-    _animation = Tween<Offset>(
-      begin: const Offset(1.5, 0.0),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInCubic));
-
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-
     super.dispose();
   }
 
@@ -51,8 +37,7 @@ class _HomeState extends State<DesktopHome> with TickerProviderStateMixin {
         children: [
           Expanded(
             flex: 3,
-            child: SlideTransition(
-              position: _animation,
+            child: SlideInRight(
               child: LeftMain(),
             ),
           ),
@@ -111,13 +96,17 @@ class LeftMainState extends State<LeftMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Consumer<HomeNotifier>(
           builder: (context, value, child) {
-            var _nav = ['Home', 'About', 'Contact'];
+            var _nav = [
+              'Home',
+              'About',
+              'Contact',
+            ];
 
             return Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -177,14 +166,6 @@ class FooterLinks extends StatelessWidget {
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
             children: [
-              IconButton(
-                icon: Icon(
-                  Entypo.facebook,
-                  color: Colors.white38,
-                ),
-                onPressed: () async => launchUrl(
-                    Uri.parse('https://web.facebook.com/robor.eminokanju')),
-              ),
               IconButton(
                 icon: Icon(
                   Entypo.twitter,
