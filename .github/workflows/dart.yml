@@ -1,42 +1,54 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# # This workflow uses actions that are not certified by GitHub.
+# # They are provided by a third-party and are governed by
+# # separate terms of service, privacy policy, and support
+# # documentation.
 
-name: Dart
+# name: Dart
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
 
-jobs:
-  build:
-    name: Build web
-    runs-on: ubuntu-latest
+# jobs:
+#   # build:
+#   #   runs-on: ubuntu-latest
+
+#   #   steps:
+#   #     - uses: actions/checkout@v3
+#   #     - uses: subosito/flutter-action@v2
+#   #       with:
+#   #         flutter-version: '2.10.5'
+#   #     - run: flutter pub get
+#   #     - run: flutter test
+#   #     - run: flutter build web
+
+#   build_ios:
+#     name: Build ios
+#     runs-on: macos-latest
     
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '2.10.5'
-          architecture: x64
-      - run: flutter pub get
-      - run: flutter build web
-      
-  deploy:
-    name: 'Deploy'
-    runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: subosito/flutter-action@v2
+#         with:
+#           flutter-version: '2.10.5'
+#           architecture: x64
+#       - run: flutter pub get
+#       - run: flutter test
+#       - run: flutter build ios --release --no-codesign
 
-    steps:
-      - uses: actions/checkout@v1
-
-      # Sets the branch name as environment variable
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-#           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ab783f7b-ffe7-40ee-841b-00fb7c20dd30
-
+#   build_app_bundle:
+#     name: Build android app bundle
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: subosito/flutter-action@v2
+#         with:
+#           flutter-version: '2.10.5'
+#           architecture: x64
+#       - run: flutter pub get
+#       - run: flutter test
+#       - run: flutter build appbundle
 

@@ -1,10 +1,18 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:myportfolio/change-notifier/home_notifier.dart';
 import 'package:myportfolio/config/routes/router.dart';
+import 'package:myportfolio/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MyApp());
 }
 
@@ -32,8 +40,19 @@ class MyApp extends StatelessWidget {
             ResponsiveBreakpoint.autoScale(800, name: TABLET),
             ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
-          background: Container(
-            color: Color(0xFFF5F5F5),
+          background: Material(
+            color: Colors.white,
+            child: Center(
+              child: AnimatedTextKit(
+                repeatForever: true,
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'Please wait!',
+                    textStyle: GoogleFonts.abel(fontSize: 40),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         onGenerateRoute: (s) => MyRouter.generateRoute(s),

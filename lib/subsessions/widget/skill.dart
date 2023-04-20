@@ -2,25 +2,30 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SkillSet extends StatelessWidget {
+class SkillSet extends StatefulWidget {
   const SkillSet({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<SkillSet> createState() => _SkillSetState();
+}
+
+class _SkillSetState extends State<SkillSet> {
+  @override
   Widget build(BuildContext context) {
     var _skills = [
       {
         'technology': 'Dart',
-        'percent': .9,
+        'percent': .92,
       },
       {
         'technology': 'Figma',
-        'percent': .35,
+        'percent': .48,
       },
       {
         'technology': 'Flutter',
-        'percent': .9,
+        'percent': .92,
       },
       {
         'technology': 'Git',
@@ -40,7 +45,7 @@ class SkillSet extends StatelessWidget {
       },
       {
         'technology': 'Rust',
-        'percent': .25,
+        'percent': .55,
       },
     ];
 
@@ -51,7 +56,7 @@ class SkillSet extends StatelessWidget {
         children: [
           for (var i = 0; i < _skills.length; i++)
             ElasticIn(
-              delay: Duration(milliseconds: 1000),
+              delay: Duration(milliseconds: 60 * (i + 10)),
               child: Container(
                 margin: EdgeInsets.only(bottom: 25),
                 child: Column(

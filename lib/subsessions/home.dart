@@ -39,7 +39,8 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                         width: double.infinity,
                         alignment: Alignment.center,
                         child: Image.network(
-                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662580805/my-portfolio/IMG_4306_agpm0q.jpg',
+                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1682016171/my-portfolio/IMG_8742_cumwfz.jpg',
+                          // 'https://res.cloudinary.com/oghenekparobor/image/upload/v1662622827/my-portfolio/my-portfolio_IMG_4306_agpm0q-q_20_lhrihk.jpg',
                           fit: BoxFit.cover,
                           width: double.infinity,
                           height: double.maxFinite,
@@ -49,27 +50,38 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                     Expanded(
                       flex: 3,
                       child: Padding(
-                        padding: const EdgeInsets.all(30.0),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 15,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text(
-                              'About me',
-                              style: GoogleFonts.abel(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 5),
                             Expanded(
-                              child: Text(
-                                'A Flutter developer with 5+ year experience in mobile development. Timely delivery and analytical thinking are my superpowers.',
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.abel(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Text(
+                                      'About me',
+                                      style: GoogleFonts.abel(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      'A Flutter developer with 5+ year experience in mobile development. Timely delivery and analytical thinking are my superpowers.',
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.abel(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -131,18 +143,6 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                             SizedBox(height: 30),
                             Expanded(child: SkillSet()),
                           ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        color: Colors.black,
-                        child: Image.network(
-                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662579249/my-portfolio/wid_er3g6f.gif',
-                          height: double.maxFinite,
-                          width: double.infinity,
-                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
