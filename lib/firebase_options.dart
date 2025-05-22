@@ -58,7 +58,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '31679622113',
     projectId: 'my-portofolio-1ab2d',
     authDomain: 'my-portofolio-1ab2d.firebaseapp.com',
-    storageBucket: 'my-portofolio-1ab2d.appspot.com',
+    storageBucket: 'my-portofolio-1ab2d.firebasestorage.app',
     measurementId: 'G-3V7JRQP6KP',
   );
+
 }

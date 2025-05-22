@@ -39,8 +39,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                         width: double.infinity,
                         alignment: Alignment.center,
                         child: Image.network(
-                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1682016171/my-portfolio/IMG_8742_cumwfz.jpg',
-                          // 'https://res.cloudinary.com/oghenekparobor/image/upload/v1662622827/my-portfolio/my-portfolio_IMG_4306_agpm0q-q_20_lhrihk.jpg',
+                          'https://res.cloudinary.com/oghenekparobor/image/upload/v1747910064/Guava/fi90esm5eajp1mq4sdjh.png',
                           fit: BoxFit.cover,
                           width: double.infinity,
                           height: double.maxFinite,
@@ -73,8 +72,8 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                                     ),
                                     SizedBox(height: 5),
                                     Text(
-                                      'A Flutter developer with 5+ year experience in mobile development. Timely delivery and analytical thinking are my superpowers.',
-                                      maxLines: 3,
+                                      'Mobile engineer grounded in fintech, now building web3 payment and consumer apps. I bring strong Dart (Flutter) and Rust skills. Merging real-world usability with blockchain tech to build fast, user-friendly apps. Lest I forget — I’m an Otaku.',
+                                      maxLines: 5,
                                       overflow: TextOverflow.ellipsis,
                                       style: GoogleFonts.abel(
                                         fontWeight: FontWeight.w600,
@@ -91,7 +90,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                               child: TextButton(
                                 onPressed: () async => launchUrl(
                                   Uri.parse(
-                                    'https://docs.google.com/document/d/1X0z5hf0YTtjTzhdRdQCLb6tNiukYp5O5V1sJb2jqh1U/edit?usp=sharing',
+                                    'https://drive.google.com/file/d/13d-ZA4O1OCOLXIBhdNpazVXd9pB-TceY/view?usp=sharing',
                                   ),
                                 ),
                                 child: Text(

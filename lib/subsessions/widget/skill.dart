@@ -17,27 +17,27 @@ class _SkillSetState extends State<SkillSet> {
     var _skills = [
       {
         'technology': 'Dart',
-        'percent': .92,
+        'percent': .95,
       },
       {
         'technology': 'Figma',
-        'percent': .48,
+        'percent': .52,
       },
       {
         'technology': 'Flutter',
-        'percent': .92,
+        'percent': .95,
       },
       {
         'technology': 'Git',
-        'percent': .7,
+        'percent': .75,
       },
       {
         'technology': 'Javascript',
-        'percent': .6,
+        'percent': .54,
       },
       {
         'technology': 'MySQL',
-        'percent': .65,
+        'percent': .70,
       },
       {
         'technology': 'PHP',
@@ -45,7 +45,15 @@ class _SkillSetState extends State<SkillSet> {
       },
       {
         'technology': 'Rust',
-        'percent': .55,
+        'percent': .70,
+      },
+      {
+        'technology': 'Solana',
+        'percent': .6,
+      },
+      {
+        'technology': 'SPL Token',
+        'percent': .6,
       },
     ];
 
@@ -55,7 +63,7 @@ class _SkillSetState extends State<SkillSet> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           for (var i = 0; i < _skills.length; i++)
-            ElasticIn(
+            SlideInUp(
               delay: Duration(milliseconds: 60 * (i + 10)),
               child: Container(
                 margin: EdgeInsets.only(bottom: 25),
@@ -81,7 +89,7 @@ class _SkillSetState extends State<SkillSet> {
                         builder: (_, c) => Container(
                           width:
                               (c.maxWidth * (_skills[i]['percent'] as double)),
-                          color: Color(0xffD69976),
+                          color: Color(0xffC59344),
                           height: 10,
                         ),
                       ),

@@ -25,34 +25,29 @@ class _AboutSubSectionState extends State<AboutSubSection> {
   var portfolio = [
     {
       'IMAGE':
-          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662626024/my-portfolio/Screenshot_2022-06-18_at_17.04.32_mro1pa_gwahag.png',
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1747918758/Guava/wd5nzo87znds8mw7sesf.png',
+      'NAME': 'Guava Finance',
+      'URL': 'https://guava.finance',
+    },
+    {
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1747919091/Guava/nb6pxyrjo8zciinw5v6y.png',
+      'NAME': 'Excrow',
+      'URL': 'https://excrow.co',
+    },
+    {
+      'IMAGE':
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1747919205/Guava/qn9ekcuh5gzr5ofyxabn.png',
       'NAME': 'Renmoney MFB',
       'URL':
           'https://play.google.com/store/apps/details?id=com.renmoney.android',
     },
     {
       'IMAGE':
-          'https://res.cloudinary.com/oghenekparobor/image/upload/v1682016362/my-portfolio/Screenshot_56_iv3nfa.png',
-      'NAME': 'Tafipal',
-      'URL': 'https://play.google.com/store/apps/details?id=com.tafipal.app',
-    },
-    {
-      'IMAGE':
-          'https://res.cloudinary.com/oghenekparobor/image/upload/v1662626959/my-portfolio/Screenshot_2022-06-18_at_17.04.11_sz3ufy_cek8l2.png',
-      'NAME': 'Cravings',
-      'URL': 'https://cravingsng.com/',
-    },
-    {
-      'IMAGE':
-          'https://res.cloudinary.com/oghenekparobor/image/upload/v1655568637/my-portfolio/alerte_e6uwd5.jpg',
-      'NAME': 'Alerte generic',
-      'URL': 'https://play.google.com/store/apps/details?id=com.alerte.generic',
-    },
-    {
-      'IMAGE':
-          'https://res.cloudinary.com/oghenekparobor/image/upload/v1666136234/my-portfolio/unnamed_b3iz54.webp',
-      'NAME': 'Detailor',
-      'URL': 'https://play.google.com/store/apps/details?id=detailor.online',
+          'https://res.cloudinary.com/oghenekparobor/image/upload/v1747934355/Guava/kfkupn4bov6bav2sp7z2.png',
+      'NAME': 'Trigger - End of Life Service',
+      'URL':
+          'https://apps.apple.com/ng/app/trigger-end-of-life-service/id6448679624',
     },
   ];
 
@@ -71,6 +66,7 @@ class _AboutSubSectionState extends State<AboutSubSection> {
                     Uri.parse(portfolio[i]['URL']!),
                   ),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         portfolio[i]['NAME']!,

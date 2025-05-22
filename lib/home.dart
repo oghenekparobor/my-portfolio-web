@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myportfolio/change-notifier/home_notifier.dart';
 import 'package:myportfolio/sessions/about.dart';
@@ -172,15 +173,29 @@ class FooterLinks extends StatelessWidget {
                   color: Colors.white38,
                 ),
                 onPressed: () async =>
-                    launchUrl(Uri.parse('https://twitter.com/kpa_robor')),
+                    launchUrl(Uri.parse('https://x.com/oghenekparobor_')),
+              ),
+              IconButton(
+                icon: Icon(
+                  FontAwesome5.telegram_plane,
+                  color: Colors.white38,
+                ),
+                onPressed: () async => launchUrl(
+                  Uri.parse(
+                    'https://t.me/oghenekparob_r',
+                  ),
+                ),
               ),
               IconButton(
                 icon: Icon(
                   Entypo.linkedin,
                   color: Colors.white38,
                 ),
-                onPressed: () async => launchUrl(Uri.parse(
-                    'https://www.linkedin.com/in/oghenekparobor-eminokanju-ab9038180/')),
+                onPressed: () async => launchUrl(
+                  Uri.parse(
+                    'https://www.linkedin.com/in/aaron-eminokanju/',
+                  ),
+                ),
               ),
             ],
           ),

@@ -56,12 +56,12 @@ class _ContactSubSectionState extends State<ContactSubSection> {
               ),
               GestureDetector(
                 onTap: () => launchUrl(
-                  Uri.parse('mailto:robor.eminokanju@gmail.com'),
+                  Uri.parse('mailto:oghenekparobor@guava.finance'),
                 ),
                 child: Text(
-                  'ROBOR.EMINOKANJU@GMAIL.COM',
+                  'oghenekparobor@guava.finance',
                   style: GoogleFonts.abel(
-                    fontSize: 40,
+                    fontSize: 38,
                     letterSpacing: 5,
                     fontWeight: FontWeight.bold,
                   ),

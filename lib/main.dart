@@ -24,39 +24,22 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: HomeNotifier()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Oghenekparobor\'s Portfolio',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        builder: (context, child) => ResponsiveWrapper.builder(
-          BouncingScrollWrapper.builder(context, child!),
-          maxWidth: 1200,
-          minWidth: 480,
-          defaultScale: true,
+        builder: (context, child) => ResponsiveBreakpoints.builder(
           breakpoints: [
-            ResponsiveBreakpoint.autoScaleDown(480, name: MOBILE),
-            ResponsiveBreakpoint.autoScale(800, name: TABLET),
-            ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            const Breakpoint(start: 0, end: 450, name: MOBILE),
+            const Breakpoint(start: 451, end: 800, name: TABLET),
+            const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+            const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
           ],
-          background: Material(
-            color: Colors.white,
-            child: Center(
-              child: AnimatedTextKit(
-                repeatForever: true,
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'Please wait!',
-                    textStyle: GoogleFonts.abel(fontSize: 40),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          child: child!,
         ),
-        onGenerateRoute: (s) => MyRouter.generateRoute(s),
-        initialRoute: home,
+        routerConfig: router,
       ),
     );
   }
