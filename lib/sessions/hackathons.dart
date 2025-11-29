@@ -4,8 +4,8 @@ import 'package:myportfolio/change-notifier/home_notifier.dart';
 import 'package:myportfolio/subsessions/widget/backdrop.dart';
 import 'package:provider/provider.dart';
 
-class ContactSection extends StatelessWidget {
-  const ContactSection({Key? key}) : super(key: key);
+class HackathonsSection extends StatelessWidget {
+  const HackathonsSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,8 @@ class ContactSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // if ((value.size(context) > 500))
                 Text(
-                  'Say Hi',
+                  'Hackathons',
                   style: GoogleFonts.abel(
                     color: Colors.white,
                     fontSize: (value.size(context) > 500) ? 72 : 25,
@@ -31,7 +30,7 @@ class ContactSection extends StatelessWidget {
                 ),
                 if ((value.size(context) > 500)) SizedBox(height: 15),
                 Text(
-                  'I am available and open to grab a coffee, consult and converse with.',
+                  'Building innovative solutions under pressure. Here are the hackathons I\'ve participated in.',
                   textAlign: TextAlign.start,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -48,3 +47,4 @@ class ContactSection extends StatelessWidget {
     );
   }
 }
+

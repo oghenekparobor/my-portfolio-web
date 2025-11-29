@@ -1,7 +1,5 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myportfolio/change-notifier/home_notifier.dart';
 import 'package:myportfolio/config/routes/router.dart';
 import 'package:myportfolio/firebase_options.dart';
@@ -29,6 +27,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: Colors.black,
+          brightness: Brightness.dark,
+          useMaterial3: true,
         ),
         builder: (context, child) => ResponsiveBreakpoints.builder(
           breakpoints: [

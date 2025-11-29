@@ -17,19 +17,25 @@ class HomeNotifier with ChangeNotifier {
   void nav(int page) {
     _current = page;
 
-    _leftPage.animateToPage(
+    // Animate right page immediately (used for both mobile and desktop)
+    _rightPage.animateToPage(
       _current,
-      duration: Duration(milliseconds: 500),
-      curve: Curves.linear,
+      duration: Duration(milliseconds: 600),
+      curve: Curves.easeInOutCubic,
     );
 
-    Future.delayed(Duration(milliseconds: 500)).then((value) {
-      _rightPage.animateToPage(
-        _current,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.linear,
-      );
-    });
+    // Animate left page with delay (only used on desktop)
+    if (_leftPage.hasClients) {
+      Future.delayed(Duration(milliseconds: 300)).then((value) {
+        if (_leftPage.hasClients) {
+          _leftPage.animateToPage(
+            _current,
+            duration: Duration(milliseconds: 600),
+            curve: Curves.easeInOutCubic,
+          );
+        }
+      });
+    }
 
     notifyListeners();
   }
@@ -41,6 +47,8 @@ class HomeNotifier with ChangeNotifier {
       case 1:
         return 'About';
       case 2:
+        return 'Hackathons';
+      case 3:
         return 'Contact';
 
       default:
@@ -51,10 +59,8 @@ class HomeNotifier with ChangeNotifier {
   Widget display(BuildContext context) {
     var _query = MediaQuery.of(context).size.width;
 
-    if (_query < 500) {
+    if (_query <= 500) {
       return MobileHome();
-    } else if (_query > 500 && _query < 950) {
-      return DesktopHome();
     } else {
       return DesktopHome();
     }
