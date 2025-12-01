@@ -23,6 +23,9 @@ class _HomeSubSectionState extends State<HomeSubSection> {
   }
 
   Widget _buildProfileSectionMobile() {
+    final width = MediaQuery.of(context).size.width;
+    final isMobile = width <= 500;
+
     return Container(
       margin: EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -42,14 +45,14 @@ class _HomeSubSectionState extends State<HomeSubSection> {
           children: [
             // Image section - fixed height
             Container(
-              height: 250,
+              height: isMobile ? 400 : 250,
               width: double.infinity,
               color: Color.fromRGBO(47, 43, 49, 1),
               child: Image.network(
-                'https://res.cloudinary.com/oghenekparobor/image/upload/v1747910064/Guava/fi90esm5eajp1mq4sdjh.png',
+                'https://res.cloudinary.com/oghenekparobor/image/upload/v1764571997/6FEB7A5B-52D5-47E1-99DD-EDC2B3B78B50_4_miu2da.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 250,
+                height: isMobile ? 400 : 250,
               ),
             ),
             // Content section - no Expanded
@@ -89,6 +92,8 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                         color: Colors.white70,
                         height: 1.6,
                       ),
+                      maxLines: isMobile ? 4 : null,
+                      overflow: isMobile ? TextOverflow.ellipsis : null,
                     ),
                     SizedBox(height: 15),
                     Container(
@@ -226,7 +231,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                           child: InkWell(
                             onTap: () async => launchUrl(
                               Uri.parse(
-                                'https://drive.google.com/file/d/1_g6ZzsXVfTdKdHxCd7XU6NUCUgLjBQ7q/view?usp=sharing',
+                                'https://drive.google.com/file/d/1kuwbO0MhFJ-kwqdUTvMIYiZm4-T7KOj8/view?usp=sharing',
                               ),
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -326,7 +331,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
               ),
             )
           : Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: SlideInDown(

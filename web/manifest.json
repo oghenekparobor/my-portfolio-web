@@ -1,23 +1,29 @@
 {
-    "name": "myportfolio",
-    "short_name": "myportfolio",
-    "start_url": ".",
+    "name": "Oghenekparobor Eminokanju - Senior Mobile Engineer & Rust Developer",
+    "short_name": "oghenekparobor.sol",
+    "start_url": "/",
+    "scope": "/",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "Senior mobile engineer and Rust developer specializing in Solana blockchain. School of Solana graduate building next-gen web3 payment and consumer applications.",
+    "orientation": "any",
     "prefer_related_applications": false,
+    "categories": ["portfolio", "developer", "blockchain"],
+    "lang": "en-US",
+    "dir": "ltr",
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "assets/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "assets/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
