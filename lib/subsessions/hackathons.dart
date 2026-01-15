@@ -34,6 +34,16 @@ class _HackathonsSubSectionState extends State<HackathonsSubSection> {
           'https://arena.colosseum.org/projects/explore/pollinet?previous=L3Byb2plY3RzL2V4cGxvcmU_c2VlZD1lNzM3NDE0NzAyNTM1OGZiJnNlYXJjaD1wb2xsaW5ldA',
       'IMAGE': 'https://pollinet.xyz/pollinet.jpg',
     },
+    {
+      'NAME': 'Solana Foundation Grant',
+      'DATE': 'October 2025',
+      'DESCRIPTION':
+          'Received a grant from the Solana Foundation to develop a project called Pollinet.',
+      'TECH_STACK': 'Rust, Kotlin, Solana, Swift, Flutter',
+      'AWARD': 'Grant Recipient',
+      'LINK': 'https://pollinet.xyz',
+      'IMAGE': 'https://pollinet.xyz/pollinet.jpg',
+    },
   ];
 
   @override
@@ -42,7 +52,8 @@ class _HackathonsSubSectionState extends State<HackathonsSubSection> {
       backgroundColor: Color(0xFF0A0A0A),
       body: SlideInUp(
         child: ListView(
-          padding: EdgeInsets.all(MediaQuery.of(context).size.width <= 500 ? 12 : 20),
+          padding: EdgeInsets.all(
+              MediaQuery.of(context).size.width <= 500 ? 12 : 20),
           children: [
             for (var i = 0; i < hackathons.length; i++) ...{
               _HackathonCard(
@@ -100,7 +111,8 @@ class _HackathonCardState extends State<_HackathonCard> {
         onTap: () async => launchUrl(Uri.parse(widget.link)),
         child: AnimatedContainer(
           duration: Duration(milliseconds: 300),
-          margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.width <= 500 ? 20 : 30),
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.width <= 500 ? 20 : 30),
           decoration: BoxDecoration(
             color: Color(0xFF1A1A1A),
             borderRadius: BorderRadius.circular(20),
@@ -123,7 +135,7 @@ class _HackathonCardState extends State<_HackathonCard> {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final isMobile = constraints.maxWidth < 600;
-              
+
               Widget imageWidget = Container(
                 margin: EdgeInsets.all(isMobile ? 16 : 20),
                 decoration: BoxDecoration(
@@ -172,7 +184,7 @@ class _HackathonCardState extends State<_HackathonCard> {
                   ),
                 ),
               );
-              
+
               Widget contentWidget = Padding(
                 padding: EdgeInsets.all(isMobile ? 16 : 20),
                 child: Column(
@@ -269,9 +281,8 @@ class _HackathonCardState extends State<_HackathonCard> {
                           'View Project',
                           style: GoogleFonts.abel(
                             fontSize: 14,
-                            color: _isHovered
-                                ? Color(0xffC59344)
-                                : Colors.white60,
+                            color:
+                                _isHovered ? Color(0xffC59344) : Colors.white60,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -280,7 +291,7 @@ class _HackathonCardState extends State<_HackathonCard> {
                   ],
                 ),
               );
-              
+
               if (isMobile) {
                 // Mobile: Vertical layout
                 return Column(

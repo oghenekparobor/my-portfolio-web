@@ -231,7 +231,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                           child: InkWell(
                             onTap: () async => launchUrl(
                               Uri.parse(
-                                'https://drive.google.com/file/d/1kuwbO0MhFJ-kwqdUTvMIYiZm4-T7KOj8/view?usp=sharing',
+                                'https://pitch.com/v/oghekparobor-resume-nkuxm7',
                               ),
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -241,7 +241,7 @@ class _HomeSubSectionState extends State<HomeSubSection> {
                                 vertical: 12,
                               ),
                               child: Text(
-                                'Download Resume',
+                                'View Resume',
                                 style: GoogleFonts.abel(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,

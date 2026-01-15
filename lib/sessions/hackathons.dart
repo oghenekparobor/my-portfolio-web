@@ -20,17 +20,18 @@ class HackathonsSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Hackathons',
+                  'Hackathons & Grants',
                   style: GoogleFonts.abel(
                     color: Colors.white,
-                    fontSize: (value.size(context) > 500) ? 72 : 25,
+                    fontSize: (value.size(context) > 500) ? 62 : 25,
                     fontWeight: FontWeight.bold,
-                    letterSpacing: (value.size(context) > 500) ? 10 : 2,
+                    letterSpacing: (value.size(context) > 500) ? 8 : 2,
+                    height: 0.9
                   ),
                 ),
                 if ((value.size(context) > 500)) SizedBox(height: 15),
                 Text(
-                  'Building innovative solutions under pressure. Here are the hackathons I\'ve participated in.',
+                  'Building innovative solutions under pressure.\nHere are the hackathons I\'ve participated in.',
                   textAlign: TextAlign.start,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
